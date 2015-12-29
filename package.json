@@ -1,0 +1,28 @@
+{
+  "name": "arik-crypto",
+  "version": "1.0.0",
+  "description": "An RSA and AES library for JavaScript.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:arik-so/Arik-Crypto-JS.git"
+  },
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "keywords": [
+    "arik",
+    "rsa",
+    "aes",
+    "crypto"
+  ],
+  "author": "Arik Sosman",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.1.1",
+    "ursa": "^0.9.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  }
+}
