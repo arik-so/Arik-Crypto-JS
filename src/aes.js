@@ -6,15 +6,15 @@ const crypto = require('crypto');
 
 module.exports = {
 
-	generateKey() {
+	generateKey: function() {
 		return crypto.randomBytes(32).toString('base64');
 	},
 
-	generateInitializationVector() {
+	generateInitializationVector: function() {
 		return crypto.randomBytes(16).toString('base64');
 	},
 
-	encrypt(data, key, iv){
+	encrypt: function(data, key, iv) {
 
 		var rawKey = new Buffer(key, 'base64');
 		var rawIV = new Buffer(iv, 'base64');
@@ -25,7 +25,7 @@ module.exports = {
 
 	},
 
-	decrypt(data, key, iv) {
+	decrypt: function(data, key, iv) {
 
 		var rawKey = new Buffer(key, 'base64');
 		var rawIV = new Buffer(iv, 'base64');
@@ -36,7 +36,7 @@ module.exports = {
 
 	},
 
-	deriveKey(input){
+	deriveKey: function(input) {
 		return crypto.createHash('sha256').update(input).digest('base64');
 	}
 

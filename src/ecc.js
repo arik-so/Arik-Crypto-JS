@@ -7,7 +7,7 @@ const Message = require('bitcore-message');
 
 module.exports = {
 
-	generateKeyPair() {
+	generateKeyPair: function() {
 		var privateKey = new bitcore.PrivateKey();
 		var publicKey = privateKey.toPublicKey();
 
@@ -24,14 +24,14 @@ module.exports = {
 		return keyPairObject;
 	},
 
-	sign(data, privateKey) {
+	sign: function(data, privateKey) {
 		var privateKeyObject = new bitcore.PrivateKey(privateKey);
 		var messageObject = new Message(data);
 		var signature = messageObject.sign(privateKeyObject);
 		return signature;
 	},
 
-	verify(signature, original, publicKey){
+	verify: function(signature, original, publicKey) {
 		var messageObject = new Message(original);
 		var publicKeyObject = new bitcore.PublicKey(publicKey);
 		var address = publicKeyObject.toAddress();
@@ -39,7 +39,7 @@ module.exports = {
 		return isVerified;
 	},
 
-	diffieHellman(publicKey, privateKey) {
+	diffieHellman: function(publicKey, privateKey) {
 		var privateKeyObject = new bitcore.PrivateKey(privateKey);
 		var publicKeyObject = new bitcore.PublicKey(publicKey);
 		var point = publicKeyObject.point;
